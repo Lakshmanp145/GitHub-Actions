@@ -1,4 +1,4 @@
-name: Parallel #workflow
+name: Sequential #workflow
 on: [push] #events like push, crete PR, create an issue
 concurrency: #cancel first one runs recent changes
   group: ${{ github.workflow }}-${{ github.ref }}
