@@ -1,0 +1,12 @@
+name: Conditions #workflow
+on: [push] #events like push, crete PR, create an issue
+concurrency: #cancel first one runs recent changes
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs: # a workflow can have multiple pipelines
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step1
+        run: sleep 20
+      
